@@ -1,0 +1,22 @@
+version: '2'
+services:
+  mylifeintheservice:
+      build:
+        context: ./
+        dockerfile: ./dockerfile
+      hostname: 'mylifeintheservice'
+      container_name: 'mylifeintheservice'
+      command: 'npm start'
+      ports:
+        - '8000:8000'
+        - "9929:9929"
+        - "9230:9230"
+      volumes:
+        - './:/opt/src'
+        - 'mylifeintheservice-node-modules:/opt/src/node_modules'
+      working_dir: '/opt/src'
+      environment:
+        - NODE_ENV=development
+        - GATSBY_WEBPACK_PUBLICPATH=/
+volumes:
+  mylifeintheservice-node-modules:

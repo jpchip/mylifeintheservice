@@ -1,0 +1,17 @@
+version: '2'
+services:
+  mylifeintheservice-prod:
+      build:
+        context: ./
+        dockerfile: ./dockerfile-prod
+      hostname: 'mylifeintheservice-prod'
+      container_name: 'mylifeintheservice-prod'
+      command: 'npm run serve'
+      ports:
+        - '80:9000'
+      volumes:
+        - './:/opt/src'
+      working_dir: '/opt/src'
+      environment:
+        - NODE_ENV=production
+        - GATSBY_WEBPACK_PUBLICPATH=/
