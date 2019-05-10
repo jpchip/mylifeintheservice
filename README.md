@@ -29,7 +29,7 @@ To test a production build locally, run:
 docker-compose -f docker-compose-prod.yml up -d
 ```
 
-This will build and launch a web server hosting at http://localhost
+This will build and launch a web server hosting at http://localhost:9000
 
 **Note:** When switching back and forth between the local dev and prod builds, if you see docker errors complaining about the network not being found,
 try running the `docker-compose down` command before switching.
